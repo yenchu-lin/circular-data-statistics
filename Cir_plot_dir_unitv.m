@@ -1,8 +1,13 @@
-function [] = Cir_plot_dir_unitv(dir1,unitv1,nbin,mveclength,fcolor,fcolord)
+function [] = Cir_plot_dir_unitv(dir1,unitv,vtype,nbin,mveclength,fcolor,fcolord)
 % What it does:
 % The funciton plots the circular histogram and the mean vector
 %
-% Last updated on 07/14/2022 by YCL
+% Last updated on 07/18/2022 by YCL
+
+if strcmp(vtype,'ori')
+    dir1 = dir1.*2;
+end
+unitv1 = unitv.(vtype);
 
 mvec = mean(unitv1);
 veclength = sqrt(real(mvec)^2 + imag(mvec)^2);
